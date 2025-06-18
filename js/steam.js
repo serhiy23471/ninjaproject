@@ -67,3 +67,7 @@ app.get("/logout", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Сервер працює на порту ${PORT}`);
 });
+
+
+// Копіювання IP
+

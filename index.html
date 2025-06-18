@@ -138,22 +138,46 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="feature-item set-bg" data-setbg="img/feature/feature-1.jpg">
-                            <h3>GROUP CLASSES</h3>
-                            <p>The Sopranos manages to address the biases<br /> and benefits of therapy</p>
-                            <a href="#" class="primary-btn f-btn">Read More</a>
+                            <h3 class="ninja__text">Ninja Project</h3>
+                            <p>Onli Mirage</p>
+
+                            <a href="#" class="primary-btn f-btn relative" onclick="copyText('217.77.210.236:27038'); return false;">
+                                Присоединится
+
+                                <!-- ✅ Абсолютне повідомлення -->
+                                <span id="copy-status" 
+                                    class="absolute top-0 right-0 bg-green-500 text-white text-xs rounded px-2 py-1"
+                                    style="display: none; transform: translate(110%, -10%); white-space: nowrap;">
+                                    ✔ Скопійовано!
+                                </span>
+                            </a>
                         </div>
+
                     </div>
                     <div class="col-md-4">
-                        <div class="feature-item set-bg" data-setbg="img/feature/feature-2.webp">
-                            <h3>PERSONAL TRAINING</h3>
-                            <p>Strep throat is very common during the flu<br /> seasons and it can be preceded</p>
-                            <a href="#" class="primary-btn f-btn">Read More</a>
-                        </div>
+                        <div class="feature-item set-bg relative" data-setbg="img/feature/feature-2.webp">
+                            <h3>Ninja Project</h3>
+                            <p>В разработке</p>
+
+                            <a href="#"
+                               class="primary-btn f-btn relative"
+                               onclick="showDevNotice(); return false;">
+                              Присоединиться
+
+                              <!-- 🔔 Повідомлення -->
+                              <span id="dev-status"
+                                    class="absolute top-0 right-0 bg-green-500 text-white text-xs rounded px-2 py-1"
+                                    style="display: none; transform: translate(-6%, -6%); white-space: nowrap;">
+                                🔧 В розробці!
+                              </span>
+                            </a>
+                                </div>
+
                     </div>
                     <div class="col-md-4">
                         <div class="feature-item set-bg" data-setbg="img/feature/feature-3.jpg">
-                            <h3>Sports Nutrition</h3>
-                            <p>A Human Being’s right to life implies his right to<br /> have the free and unrestricted
+                            <h3>Бан лист</h3>
+                            <p>0 банов
                             </p>
                             <a href="#" class="primary-btn f-btn">Read More</a>
                         </div>
@@ -253,6 +277,39 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
+     <!-- Початок для копіювання IP -->
+    <script>
+        function copyText(value) {
+          navigator.clipboard.writeText(value)
+            .then(() => {
+              const status = document.getElementById('copy-status');
+              status.style.display = 'inline';
+              setTimeout(() => {
+                status.style.display = 'none';
+              }, 1500);
+            })
+            .catch(() => alert("❌ Помилка копіювання"));
+        }
+    </script>
+     <!-- Кінець для копіювання IP -->
+
+     <!-- Початок В розробці -->
+    <script>
+        function showDevNotice() {
+          const status = document.getElementById('dev-status');
+          status.style.display = 'inline-block';
+          setTimeout(() => {
+            status.style.display = 'none';
+          }, 1500);
+        }
+    </script>
+     <!-- Кінець В розробці -->
+
+     
+
+
+
+
     <script src="js/steam.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

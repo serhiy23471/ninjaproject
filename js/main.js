@@ -71,10 +71,9 @@
         margin: 0,
         nav: true,
         items: 1,
-        autoplay: {
-            delay: 3500,
-            disableOnInteraction: false,
-        },
+        autoplay: true,               // обов'язково true
+        autoplayTimeout: 7000,       // час між слайдами (в мс)
+        autoplayHoverPause: false,
         dots: true,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
