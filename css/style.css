@@ -355,6 +355,11 @@ ol {
 	padding-top: 0;
 }
 
+.header-normal-position {
+	position: static;
+	background-color: #151515;
+}
+
 .header__wrapper-nav {
 	display: flex;
 	align-items: center;
@@ -734,6 +739,13 @@ ol {
   Home About
 -----------------------*/
 
+  Правила
+-----------------------*/
+
+.margin-top-testing {
+	margin: 10px;
+}
+
 .home-about {
 	background: #151515;
 }
@@ -769,6 +781,97 @@ ol {
 
 .about-img img {
 	min-width: 100%;
+}
+
+
+/*---------------------
+  Правила
+-----------------------*/
+
+.section__regulations {
+	background-color: #151515;
+	padding: 50px 0;
+}
+
+.rule-block {
+	margin-top: 50px;
+}
+
+.rule-block-first{
+	margin-top: 0;
+}
+
+.test-red {
+	color: red;
+}
+
+.tets-bold {
+	font-weight: 700;
+}
+
+
+.accordion {
+	width: 100%;
+  	font-family: Arial, sans-serif;
+  	border-radius: 10px;
+  	overflow: hidden;
+}
+
+.accordion-item {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+.accordion-header {
+  padding: 15px 20px;
+  font-weight: bold;
+  background: #e6e6e6;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s;
+}
+
+.accordion-header:hover {
+  background: #dcdcdc;
+}
+
+.accordion-content {
+  display: none;
+  padding: 0 20px;
+  background: #fff;
+  max-height: 500px;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+  padding: 15px 20px;
+}
+
+.accordion-content p {
+  margin: 10px 0;
+  line-height: 1.5;
+  color: #000;
+}
+
+.accordion-content p.test-margin {
+	margin-top: 35px;
+}
+
+.accordion-content p.test-margin-top{
+	margin-top: 0;
+}
+
+
+.scrollable-rules {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
 /*---------------------
