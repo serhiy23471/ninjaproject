@@ -1,325 +1,1598 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ninja Project - CS2 сервер</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Activitar Template">
-    <meta name="keywords" content="Activitar, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ninja-Project</title>
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="MyWebSite" />
-<link rel="manifest" href="/site.webmanifest" />
+      body {
+        font-family: "Nunito", sans-serif;
+      }
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Nunito", sans-serif;
+        color: inherit;
+        background-color: transparent;
+        overflow-x: visible;
+      }
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-</head>
+      .ninja-text,
+      h2.ninja-text,
+      #home h2,
+      #rules h2 {
+        font-family: "Press Start 2P", cursive;
+        letter-spacing: 1px;
+        background-color: #0a0a0a;
+        color: #fff;
+        overflow-x: hidden;
+        line-height: 1.3;
+      }
 
-<body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
+      #vip h2 {
+        font-family: "Bungee", cursive;
+        letter-spacing: 2px;
+        background: linear-gradient(45deg, #ffd700, #ff9900, #ff6600);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+        position: relative;
+        display: block;
+        text-align: center;
+        padding: 0 40px;
+        animation: textGlow 2s infinite alternate,
+          textFloat 3s ease-in-out infinite;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      @keyframes textGlow {
+        0% {
+          text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+        }
+        100% {
+          text-shadow: 0 0 20px rgba(255, 153, 0, 0.8),
+            0 0 30px rgba(255, 153, 0, 0.6);
+        }
+      }
+
+      @keyframes textFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      #vip h2::before,
+      #vip h2::after {
+        content: "⚔";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ff9900;
+        font-size: 1.5em;
+        animation: arrowPulse 1.5s infinite alternate;
+      }
+
+      #vip h2::before {
+        left: 0;
+      }
+      #vip h2::after {
+        right: 0;
+      }
+
+      @keyframes arrowPulse {
+        0% {
+          transform: translateY(-50%) scale(1);
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(-50%) scale(1.3);
+          opacity: 1;
+          text-shadow: 0 0 15px rgba(255, 153, 0, 0.8);
+        }
+      }
+
+      .ninja-text {
+        background: linear-gradient(45deg, #ff0000, #990000);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        font-family: "Press Start 2P", cursive;
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #ff0000;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .vip-card {
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        cursor: pointer; /* Додаємо курсор-руку */
+      }
+
+      .vip-card:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: 0 20px 30px rgba(255, 0, 0, 0.3);
+      }
+
+      .vip-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        transform: rotate(45deg);
+        transition: all 0.5s ease;
+        opacity: 0;
+      }
+
+      .vip-card:hover::before {
+        opacity: 1;
+        animation: shine 1.5s ease-out infinite;
+      }
+
+      @keyframes shine {
+        0% {
+          transform: rotate(45deg) translate(-50%, -50%);
+        }
+        100% {
+          transform: rotate(45deg) translate(50%, 50%);
+        }
+      }
+
+      .rules-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+
+      .rules-container.expanded {
+        max-height: 500px;
+        overflow-y: auto;
+      }
+
+      .rules-container::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .rules-container::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+
+      .rules-container::-webkit-scrollbar-thumb {
+        background: #ff0000;
+        border-radius: 3px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .pulse {
+        animation: pulse 1.5s infinite;
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+        }
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+        }
+        100% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+        }
+      }
+
+      @keyframes ninjaJump {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .ninja-jump {
+        animation: ninjaJump 2s ease-in-out infinite;
+      }
+
+      @keyframes smoke {
+        0% {
+          opacity: 0;
+          transform: translateY(0) scale(0.5);
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-50px) scale(1.5);
+        }
+      }
+
+      .smoke-effect::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.8) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        border-radius: 50%;
+        transform: translateX(-50%);
+        animation: smoke 2s ease-out infinite;
+        filter: blur(5px);
+      }
+
+      .steam-btn {
+        background: linear-gradient(45deg, #171a21, #1b2838);
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .steam-btn:hover {
+        background: linear-gradient(45deg, #1b2838, #171a21);
+        transform: translateY(-2px);
+      }
+
+      /* Виправлення для пагінації коментарів */
+      #pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      #page-numbers button {
+        margin: 0 5px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #page-numbers button.active {
+        background-color: #ef4444;
+        color: white;
+      }
+
+      /* Mobile menu styles */
+      .mobile-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 40;
+        padding: 1rem;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .mobile-menu.active {
+        transform: translateY(0);
+      }
+
+      .mobile-menu a {
+        display: block;
+        padding: 1rem;
+        color: white;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .mobile-menu a:last-child {
+        border-bottom: none;
+      }
+
+      /* Адаптивні стилі */
+      @media (max-width: 640px) {
+        .hero-section {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+        }
+
+        .ninja-text,
+        h2.ninja-text,
+        #home h2,
+        #rules h2 {
+          font-size: 2rem;
+          line-height: 2.5rem;
+          padding: 0 1rem;
+        }
+
+        #vip h2 {
+          font-size: 1.8rem;
+          padding: 0 2rem;
+        }
+
+        #vip h2::before,
+        #vip h2::after {
+          font-size: 1rem;
+        }
+
+        .vip-cards {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .server-card {
+          padding: 1rem;
+        }
+
+        .server-info {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .server-divider {
+          display: none;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .logo-center span {
+          font-size: 1rem;
+        }
+
+        .server-ip {
+          font-size: 0.7rem;
+        }
+      }
+
+      @media (min-width: 641px) and (max-width: 768px) {
+        .ninja-text,
+        h2.ninja-text,
+        #home h2,
+        #rules h2 {
+          font-size: 2.5rem;
+          line-height: 3rem;
+        }
+
+        .vip-cards {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .vip-card:nth-child(3) {
+          grid-column: span 2;
+          max-width: 80%;
+          margin: 0 auto;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 1536px)  {
+        .bg-red-500 {
+          margin-right: 50px;
+        }
+        
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .container {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* Специфічні стилі для контактної інформації */
+        .overflow-hidden {
+          overflow: visible;
+        }
+
+        .break-all {
+          word-break: break-all;
+          overflow-wrap: break-word;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          font-size: 16px;
+          line-height: 1.5;
+        }
+
+        .bg-red-500 {
+          margin: 0 -21px -60px 0;
+        }
+
+        p,
+        li {
+          font-size: 0.95rem;
+        }
+
+        .rules-container {
+          max-height: none;
+          overflow-y: visible;
+        }
+
+        .rules-toggle i {
+          transition: transform 0.3s ease;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .mobile-menu-button,
+        .mobile-menu {
+          display: none !important;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      @media (hover: none) {
+        .vip-card:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-gray-900">
+    <!-- Шапка -->
+    <header
+      class="bg-black bg-opacity-90 border-b border-red-900 sticky top-0 z-50"
+    >
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="#home" class="flex items-center">
+            <img src="./logo.png" alt="Ninja Project Logo" class="w-12 h-12" />
+            <span class="text-white font-bold text-xl ml-3">NINJA PROJECT</span>
+          </a>
+        </div>
+
+        <div class="md:hidden">
+          <button
+            id="mobile-menu-button"
+            class="text-white focus:outline-none mobile-menu-button"
+          >
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+
+        <nav id="main-nav" class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="nav-link text-white hover:text-red-500"
+            >Головна</a
+          >
+          <a href="#vip" class="nav-link text-white hover:text-red-500">VIP</a>
+          <a href="#rules" class="nav-link text-white hover:text-red-500"
+            >Правила</a
+          >
+          <a href="#server" class="nav-link text-white hover:text-red-500"
+            >Підключитися</a
+          >
+          <a
+            href="#"
+            class="steam-btn text-white font-bold py-2 px-4 rounded-full inline-flex items-center"
+          >
+            <i class="fab fa-steam mr-2"></i> Увійти
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden">
+      <a href="#home" class="nav-link">Головна</a>
+      <a href="#vip" class="nav-link">VIP</a>
+      <a href="#rules" class="nav-link">Правила</a>
+      <a href="#server" class="nav-link">Підключитися</a>
+      <a
+        href="#"
+        class="steam-btn text-white font-bold py-2 px-4 rounded-full inline-flex items-center justify-center my-2"
+      >
+        <i class="fab fa-steam mr-2"></i> Увійти
+      </a>
     </div>
 
-    <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="container-fluid header__wrapper-nav">
-            <div class="logo">
-                <a href="./index.html">
-                    <img src="img/logo.png" alt="">
-                </a>
-            </div>
+    <!-- Герой секція -->
+    <section
+      id="home"
+      class="relative bg-black py-20 overflow-hidden hero-section"
+    >
+      <div class="absolute inset-0 opacity-10">
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-repeat"
+          style="
+            background-image: url('https://i.imgur.com/5QzY5aP.png');
+            background-size: 300px;
+            opacity: 0.15;
+          "
+        ></div>
+      </div>
 
-            <div class="container">
-                <div class="nav-menu">
-                    <nav class="mainmenu mobile-menu test">
-                        <ul>
-                            <li class="active"><a href="./index.html">Главная</a></li>
-                            <li><a class="static__btn" href="./shop.html">Магазин</a></li>
-                            <li><a href="./schedule.html">Статистика</a></li>
-                            <li><a href="./gallery.html">Правила</a></li>
+      <div
+        class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center"
+      >
+        <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+          <h2 class="text-5xl md:text-6xl font-bold mb-6 ninja-text">
+            NINJA PROJECT
+          </h2>
+          <p class="text-xl mb-8 text-gray-300">
+            Найкращий CS2 сервер! Приєднуйся до нашої команди та відчуй
+            справжній дух бою.
+          </p>
 
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="top-social">
-                <a href="https://ninjaproject.com.ua/authenticate">Увійти</a>
-            </div>
-            <div id="mobile-menu-wrap"></div>
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start hero-buttons"
+          >
+            <a
+              href="#server"
+              class="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 pulse"
+            >
+              Грати зараз
+            </a>
+            <a
+              href="#vip"
+              class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105"
+            >
+              VIP статуси
+            </a>
+          </div>
         </div>
-    </header>
-    <!-- Header End -->
 
-    <!-- Hero Section Begin -->
-    <section class="hero-section">
-        <div class="hero-items owl-carousel">
-            <div class="single-hero-item set-bg" data-setbg="img/hero-slider/hero-2.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="hero-text">
-                                <h2>Запрошуємо на сервер</h2>
-                                <h1>Ninja Project</h1>
-                                <a href="https://discord.gg/n6hr7J3Txd" class="primary-btn">Discord</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single-hero-item set-bg" data-setbg="img/hero-slider/hero-4.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="hero-text">
-                                <h2>Запрошуємо на сервер</h2>
-                                <h1>Ninja Project</h1>
-                                <a href="https://discord.gg/VqpEUhZy" class="primary-btn">Discord</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single-hero-item set-bg" data-setbg="img/hero-slider/hero-3.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="hero-text">
-                                <h2>Запрошуємо на сервер</h2>
-                                <h1>Ninja Project</h1>
-                                <a href="https://discord.gg/VqpEUhZy" class="primary-btn">Discord</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="md:w-1/2 flex justify-center relative">
+          <div
+            class="absolute -bottom-4 -right-4 w-16 h-16 bg-red-500 rounded-full flex items-center justify-center animate-bounce"
+          ></div>
         </div>
+      </div>
     </section>
-    <!-- Hero End -->
 
-    <!-- Classes Section Begin -->
-    <section class="classes-section">
-        <div class="class-title set-bg" data-setbg="img/classes-title-bg.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 m-auto text-center">
-                        <div class="section-title pl-lg-4 pr-lg-4 pl-0 pr-0">
-                            <h2>Choose Your Program</h2>
-                            <p>Our Crossfit experts can help you discover new training techniques and exercises that
-                                offer a dynamic and efficient full-body workout.</p>
-                        </div>
-                    </div>
+    <!-- Статус серверів -->
+    <section id="server" class="py-12 bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 ninja-text">
+          ОНЛАЙН СЕРВЕРІВ
+        </h2>
+
+        <div class="max-w-2xl mx-auto">
+          <!-- Сервер 1 -->
+          <div
+            class="bg-gray-800 rounded-lg p-5 shadow-lg mb-4 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-red-900/20 server-card"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 pulse"></div>
+                <h3 class="text-lg font-bold text-white">NINJA #1</h3>
+              </div>
+              <div class="flex items-center space-x-4 server-info">
+                <div class="text-right">
+                  <p class="text-sm text-gray-400">Гравців</p>
+                  <p class="text-white font-bold">24/32</p>
                 </div>
+                <div class="h-8 w-px bg-gray-600 server-divider"></div>
+                <div class="text-right">
+                  <p class="text-sm text-gray-400">Карта</p>
+                  <p class="text-white font-bold">de_mirage</p>
+                </div>
+              </div>
             </div>
-        </div>
+            <div class="mt-3 flex justify-between items-center">
+              <span class="text-sm text-gray-400 server-ip"
+                >IP: ninja-project.cs2.ua:27015</span
+              >
+              <button
+                class="bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-1 px-3 rounded transition duration-300 copy-connect-btn"
+              >
+                <i class="fas fa-copy mr-1"></i> Копіювати
+              </button>
+            </div>
+          </div>
 
+          <!-- Сервер 2 -->
+          <div
+            class="bg-gray-800 rounded-lg p-5 shadow-lg transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-yellow-900/20"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-3 h-3 rounded-full bg-yellow-500 mr-3"></div>
+                <h3 class="text-lg font-bold text-white">NINJA #2</h3>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <p class="text-sm text-gray-400">Гравців</p>
+                  <p class="text-gray-500">-/-</p>
+                </div>
+                <div class="h-8 w-px bg-gray-600"></div>
+                <div class="text-right">
+                  <p class="text-sm text-gray-400">Карта</p>
+                  <p class="text-gray-500">-</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <span class="text-sm text-gray-500">Сервер у розробці</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-    <!-- Classes Section End -->
 
-    <!-- Feature Section Begin -->
-    <section class="feature-section">
-       <div class="container-fluid-wrapper">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="feature-item set-bg" data-setbg="img/feature/feature-1.jpg">
-                            <h3 class="ninja__text">Ninja Project</h3>
-                            <p>Onli Mirage</p>
+    <!-- VIP секція -->
+    <section id="vip" class="py-16 bg-gray-900 relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-full opacity-10">
+        <!-- <div class="absolute top-10 left-10 w-8 h-8">
+          <img
+            src="https://i.imgur.com/JQ6Yd5N.png"
+            class="w-full h-full animate-spin"
+            style="animation-duration: 8s"
+          />
+        </div> -->
+        <div class="absolute top-1/4 right-20 w-6 h-6">
+          <img
+            src="https://i.imgur.com/JQ6Yd5N.png"
+            class="w-full h-full animate-spin"
+            style="animation-duration: 5s"
+          />
+        </div>
+        <div class="absolute bottom-20 left-1/3 w-5 h-5">
+          <img
+            src="https://i.imgur.com/JQ6Yd5N.png"
+            class="w-full h-full animate-spin"
+            style="animation-duration: 7s"
+          />
+        </div>
+      </div>
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-16">VIP СТАТУСИ</h2>
 
-                            <a href="#" class="primary-btn f-btn relative" onclick="copyText('217.77.210.236:27038'); return false;">
-                                Присоединится
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 vip-cards">
+          <!-- Bronze VIP -->
+          <div
+            class="vip-card bg-gradient-to-br from-yellow-800 to-yellow-600 rounded-lg overflow-hidden shadow-xl"
+          >
+            <div class="p-6 text-center">
+              <div
+                class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
+                <i class="fas fa-shield-alt text-3xl text-yellow-800"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-yellow-200">
+                BRONZE NINJA
+              </h3>
+              <p class="text-gray-200 mb-6">Основний статус для початківців</p>
+              <div class="text-3xl font-bold mb-6 text-white">
+                50₴<span class="text-sm text-gray-300">/місяць</span>
+              </div>
 
-                                <!-- ✅ Абсолютне повідомлення -->
-                                <span id="copy-status" 
-                                    class="absolute top-0 right-0 bg-green-500 text-white text-xs rounded px-2 py-1"
-                                    style="display: none; transform: translate(110%, -10%); white-space: nowrap;">
-                                    ✔ Скопійовано!
-                                </span>
-                            </a>
-                        </div>
+              <ul class="text-left mb-8 space-y-2 text-gray-200">
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-yellow-500 mr-2"></i>
+                  Доступ до VIP-зон
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-yellow-500 mr-2"></i>
+                  +1000$ на старті
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-yellow-500 mr-2"></i>
+                  VIP-чат
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-yellow-500 mr-2"></i>
+                  Базові моделі гравців
+                </li>
+              </ul>
 
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-item set-bg relative" data-setbg="img/feature/feature-2.webp">
-                            <h3>Ninja Project</h3>
-                            <p>В разработке</p>
-
-                            <a href="#"
-                               class="primary-btn f-btn relative"
-                               onclick="showDevNotice(); return false;">
-                              Присоединиться
-
-                              <!-- 🔔 Повідомлення -->
-                              <span id="dev-status"
-                                    class="absolute top-0 right-0 bg-green-500 text-white text-xs rounded px-2 py-1"
-                                    style="display: none; transform: translate(-6%, -6%); white-space: nowrap;">
-                                🔧 В розробці!
-                              </span>
-                            </a>
-                                </div>
-
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-item set-bg" data-setbg="img/feature/feature-3.jpg">
-                            <h3>Бан лист</h3>
-                            <p>0 банов
-                            </p>
-                            <a href="#" class="primary-btn f-btn">Read More</a>
-                        </div>
-                    </div>
-
-
-                </div>
+              <button
+                class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-4 rounded transition duration-300"
+              >
+                Придбати
+              </button>
             </div>
+          </div>
+
+          <!-- Silver VIP -->
+          <div
+            class="vip-card bg-gradient-to-br from-gray-300 to-gray-400 rounded-lg overflow-hidden shadow-xl transform scale-105"
+          >
+            <div class="p-6 text-center">
+              <div
+                class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
+                <i class="fas fa-star text-3xl text-gray-600"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                SHADOW NINJA
+              </h3>
+              <p class="text-gray-700 mb-6">Для досвідчених воїнів</p>
+              <div class="text-3xl font-bold mb-6 text-gray-800">
+                100₴<span class="text-sm text-gray-600">/місяць</span>
+              </div>
+
+              <ul class="text-left mb-8 space-y-2 text-gray-700">
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-gray-500 mr-2"></i> Усе з
+                  Bronze VIP
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-gray-500 mr-2"></i> +3000$
+                  на старті
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-gray-500 mr-2"></i>
+                  Ексклюзивні моделі зброї
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-gray-500 mr-2"></i> Доступ
+                  до спец. команд
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-gray-500 mr-2"></i>
+                  Приорітетне підключення
+                </li>
+              </ul>
+
+              <button
+                class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-4 rounded transition duration-300"
+              >
+                Придбати
+              </button>
+            </div>
+          </div>
+          <!-- Gold VIP -->
+          <div
+            class="vip-card bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-lg overflow-hidden shadow-xl"
+          >
+            <div class="p-6 text-center">
+              <div
+                class="w-20 h-20 bg-yellow-200 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
+                <i class="fas fa-crown text-3xl text-yellow-600"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-yellow-800">
+                MASTER NINJA
+              </h3>
+              <p class="text-gray-800 mb-6">Для справжніх майстрів</p>
+              <div class="text-3xl font-bold mb-6 text-gray-800">
+                200₴<span class="text-sm text-gray-600">/місяць</span>
+              </div>
+
+              <ul class="text-left mb-8 space-y-2 text-gray-800">
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-yellow-500 mr-2"></i> Усе з
+                  Silver VIP
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-yellow-500 mr-2"></i>
+                  +5000$ на старті
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-yellow-500 mr-2"></i>
+                  Унікальні анімації
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-yellow-500 mr-2"></i>
+                  Персональний префікс
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-yellow-500 mr-2"></i>
+                  VIP-квести
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check-circle text-yellow-500 mr-2"></i> Право
+                  на тестування новинок
+                </li>
+              </ul>
+
+              <button
+                class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded transition duration-300"
+              >
+                Придбати
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    <!-- Feature Section End -->
 
+    <!-- Правила -->
+    <section id="rules" class="py-16 bg-black">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12 ninja-text">
+          ПРАВИЛА СЕРВЕРА
+        </h2>
 
-   
+        <!-- Правила 1 -->
+        <div class="max-w-4xl mx-auto mb-8">
+          <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+            <button
+              class="rules-toggle w-full flex justify-between items-center p-6 bg-gray-800 hover:bg-gray-700 transition duration-300"
+              aria-expanded="false"
+            >
+              <h3 class="text-xl font-bold text-white">
+                Основні правила сервера
+              </h3>
+              <i
+                class="fas fa-chevron-down text-red-500 transition-transform duration-300"
+              ></i>
+            </button>
 
-    <!-- Footer Section Begin -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="footer-logo-item">
-                        <div class="f-logo">
-                            <a href="#"><img src="img/logo.png" alt=""></a>
-                        </div>
-                        <p>Despite growth of the Internet over the past seven years, the use of toll-free phone numbers
-                            in television advertising continues.</p>
-                        <div class="social-links">
-                            <h6>Наші соц мережі</h6>
-                            <a href="#"><i class="telegram-icon fa fa-facebook"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="19.375" viewBox="0 0 496 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M248 8C111 8 0 119 0 256S111 504 248 504 496 393 496 256 385 8 248 8zM363 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5q-3.3 .7-104.6 69.1-14.8 10.2-26.9 9.9c-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3q.8-6.7 18.5-13.7 108.4-47.2 144.6-62.3c68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9a10.5 10.5 0 0 1 3.5 6.7A43.8 43.8 0 0 1 363 176.7z"/></svg></i></a>
-                            <!-- <a href="#"><i class="fa fa-twitter"></i></a> -->
-                            <a href="#"><i class="tiktok-icon fa fa-twitter"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg></i></a>
-                            <a href="https://discord.gg/n6hr7J3Txd"><i class="discord-icon fa fa-google-plus"><svg xmlns="http://www.w3.org/2000/svg" height="17" width="25" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M524.5 69.8a1.5 1.5 0 0 0 -.8-.7A485.1 485.1 0 0 0 404.1 32a1.8 1.8 0 0 0 -1.9 .9 337.5 337.5 0 0 0 -14.9 30.6 447.8 447.8 0 0 0 -134.4 0 309.5 309.5 0 0 0 -15.1-30.6 1.9 1.9 0 0 0 -1.9-.9A483.7 483.7 0 0 0 116.1 69.1a1.7 1.7 0 0 0 -.8 .7C39.1 183.7 18.2 294.7 28.4 404.4a2 2 0 0 0 .8 1.4A487.7 487.7 0 0 0 176 479.9a1.9 1.9 0 0 0 2.1-.7A348.2 348.2 0 0 0 208.1 430.4a1.9 1.9 0 0 0 -1-2.6 321.2 321.2 0 0 1 -45.9-21.9 1.9 1.9 0 0 1 -.2-3.1c3.1-2.3 6.2-4.7 9.1-7.1a1.8 1.8 0 0 1 1.9-.3c96.2 43.9 200.4 43.9 295.5 0a1.8 1.8 0 0 1 1.9 .2c2.9 2.4 6 4.9 9.1 7.2a1.9 1.9 0 0 1 -.2 3.1 301.4 301.4 0 0 1 -45.9 21.8 1.9 1.9 0 0 0 -1 2.6 391.1 391.1 0 0 0 30 48.8 1.9 1.9 0 0 0 2.1 .7A486 486 0 0 0 610.7 405.7a1.9 1.9 0 0 0 .8-1.4C623.7 277.6 590.9 167.5 524.5 69.8zM222.5 337.6c-29 0-52.8-26.6-52.8-59.2S193.1 219.1 222.5 219.1c29.7 0 53.3 26.8 52.8 59.2C275.3 311 251.9 337.6 222.5 337.6zm195.4 0c-29 0-52.8-26.6-52.8-59.2S388.4 219.1 417.9 219.1c29.7 0 53.3 26.8 52.8 59.2C470.7 311 447.5 337.6 417.9 337.6z"/></svg></i></a>
-                            <!-- <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 offset-lg-1">
-                    <div class="footer-widget">
-                        <h5>Our Blog</h5>
-                        <div class="footer-blog">
-                            <a href="#" class="fb-item">
-                                <h6>Most people who work</h6>
-                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
-                            </a>
-                            <a href="#" class="fb-item">
-                                <h6>Freelance Design Tricks How </h6>
-                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
-                            </a>
-                            <a href="#" class="fb-item">
-                                <h6>have a computer at home have had </h6>
-                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="footer-widget">
-                        <h5>Get Info</h5>
-                        <ul class="footer-info">
-                            <li>
-                                <i class="fa fa-phone"></i>
-                                <span>Phone:</span>
-                                (12) 345 6789
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope-o"></i>
-                                <span>Email:</span>
-                                maksimnaumenko197@gmail.com
-                            </li>
-                            <li>
-                                <i class="fa fa-map-marker"></i>
-                                <span>Address</span>
-                                Iris Watson, Box 283 8562, NY
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="rules-container bg-gray-900">
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-red-500 mb-4">
+                  1. Загальні правила
+                </h4>
+                <ul class="space-y-2 mb-6 text-gray-300">
+                  <li>1.1. Поважайте інших гравців та адміністрацію.</li>
+                  <li>1.2. Заборонено будь-які форми дискримінації.</li>
+                  <li>
+                    1.3. Заборонено використання читів та будь-яких програм, що
+                    надають перевагу.
+                  </li>
+                  <li>
+                    1.4. Нікнейм повинен бути адекватним, без образ та порушень.
+                  </li>
+                  <li>
+                    1.5. Заборонено рекламу інших серверів чи ресурсів без
+                    дозволу адміністрації.
+                  </li>
+                </ul>
+
+                <h4 class="text-xl font-bold text-red-500 mb-4">
+                  2. Ігровий процес
+                </h4>
+                <ul class="space-y-2 mb-6 text-gray-300">
+                  <li>
+                    2.1. Заборонено гриферство та навмисне псування гри іншим
+                    гравцям.
+                  </li>
+                  <li>2.2. Заборонено використання багів та експлойтів.</li>
+                  <li>
+                    2.3. Teamkill дозволений лише у випадках самозахисту або за
+                    домовленістю.
+                  </li>
+                  <li>
+                    2.4. AFK більше 3 хвилин без попередження - причина для
+                    кика.
+                  </li>
+                  <li>2.5. Заборонено спам у чат чи голосовий чат.</li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
-        <div class="copyright-text">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <div class="ct-inside">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved
-                            <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                                href="#" target="_blank">Ninja-Project</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </div>
-                    </div>
-                </div>
+
+        <!-- Правила 2 -->
+        <div class="max-w-4xl mx-auto mb-8">
+          <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+            <button
+              class="rules-toggle w-full flex justify-between items-center p-6 bg-gray-800 hover:bg-gray-700 transition duration-300"
+              aria-expanded="false"
+            >
+              <h3 class="text-xl font-bold text-white">VIP правила</h3>
+              <i
+                class="fas fa-chevron-down text-red-500 transition-transform duration-300"
+              ></i>
+            </button>
+
+            <div class="rules-container bg-gray-900">
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-red-500 mb-4">
+                  3. VIP правила
+                </h4>
+                <ul class="space-y-2 mb-6 text-gray-300">
+                  <li>
+                    3.1. VIP статус не дає права порушувати правила сервера.
+                  </li>
+                  <li>
+                    3.2. VIP гравці можуть отримувати додаткові переваги, але не
+                    можуть зловживати ними.
+                  </li>
+                  <li>3.3. Передача VIP-акаунта третім особам заборонена.</li>
+                  <li>
+                    3.4. Адміністрація має право скасувати VIP статус за
+                    порушення правил без повернення коштів.
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
+
+        <!-- Правила 3 -->
+        <div class="max-w-4xl mx-auto mb-8">
+          <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+            <button
+              class="rules-toggle w-full flex justify-between items-center p-6 bg-gray-800 hover:bg-gray-700 transition duration-300"
+              aria-expanded="false"
+            >
+              <h3 class="text-xl font-bold text-white">
+                Адміністрація та покарання
+              </h3>
+              <i
+                class="fas fa-chevron-down text-red-500 transition-transform duration-300"
+              ></i>
+            </button>
+
+            <div class="rules-container bg-gray-900">
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-red-500 mb-4">
+                  4. Накази адміністрації
+                </h4>
+                <ul class="space-y-2 mb-6 text-gray-300">
+                  <li>
+                    4.1. Накази адміністрації є обов'язковими до виконання.
+                  </li>
+                  <li>
+                    4.2. Спори з адміністрацією ведуться у приватному чаті або
+                    на дискорд сервері.
+                  </li>
+                  <li>
+                    4.3. Невиконання наказу адміністрації може призвести до
+                    блокування.
+                  </li>
+                  <li>
+                    4.4. Адміністрація має право застосовувати покарання на
+                    власний розсуд.
+                  </li>
+                </ul>
+
+                <h4 class="text-xl font-bold text-red-500 mb-4">
+                  5. Санкції за порушення
+                </h4>
+                <ul class="space-y-2 text-gray-300">
+                  <li>5.1. Перше порушення - попередження.</li>
+                  <li>5.2. Друге порушення - мут/кік з сервера.</li>
+                  <li>
+                    5.3. Серйозні порушення - бан від 1 дня до перманентного.
+                  </li>
+                  <li>
+                    5.4. Використання читів - перманентний бан без можливості
+                    розгляду.
+                  </li>
+                  <li>
+                    5.5. Адміністрація залишає за собою право змінювати строки
+                    покарань.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правила 4 -->
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+            <button
+              class="rules-toggle w-full flex justify-between items-center p-6 bg-gray-800 hover:bg-gray-700 transition duration-300"
+              aria-expanded="false"
+            >
+              <h3 class="text-xl font-bold text-white">Додаткові правила</h3>
+              <i
+                class="fas fa-chevron-down text-red-500 transition-transform duration-300"
+              ></i>
+            </button>
+
+            <div class="rules-container bg-gray-900">
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-red-500 mb-4">
+                  6. Додаткові правила
+                </h4>
+                <ul class="space-y-2 mb-6 text-gray-300">
+                  <li>6.1. Дотримуйтесь спільнотних норм поведінки.</li>
+                  <li>
+                    6.2. Заборонено використання нецензурної лексики у
+                    глобальному чаті.
+                  </li>
+                  <li>6.3. Поважайте рішення адміністрації.</li>
+                  <li>
+                    6.4. Заборонено використання сторонніх програм для отримання
+                    переваг.
+                  </li>
+                  <li>
+                    6.5. Будь-які спроби обійти правила будуть каратися баном.
+                  </li>
+                </ul>
+
+                <h4 class="text-xl font-bold text-red-500 mb-4">
+                  7. Технічні вимоги
+                </h4>
+                <ul class="space-y-2 text-gray-300">
+                  <li>7.1. Гравець несе відповідальність за свій акаунт.</li>
+                  <li>
+                    7.2. Проблеми з підключенням не є підставою для порушення
+                    правил.
+                  </li>
+                  <li>7.3. Заборонено використовувати баги карт.</li>
+                  <li>7.4. Технічні питання вирішуються через підтримку.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секція коментарів -->
+    <section id="comments" class="py-16 bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 ninja-text">
+          ВІДГУКИ ГРАВЦІВ
+        </h2>
+
+        <!-- Повідомлення про необхідність авторизації -->
+        <div
+          id="login-message"
+          class="max-w-2xl mx-auto bg-gray-800 rounded-lg p-8 shadow-lg text-center"
+        >
+          <i class="fas fa-comment-slash text-5xl text-red-500 mb-4"></i>
+          <h3 class="text-xl font-bold text-white mb-2">
+            Щоб залишити відгук, увійдіть через Steam
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Авторизуйтеся, щоб мати можливість писати коментарі та читати всі
+            відгуки
+          </p>
+          <button
+            id="comments-login-btn"
+            class="steam-btn text-white font-bold py-3 px-6 rounded-full inline-flex items-center mx-auto"
+          >
+            <i class="fab fa-steam mr-2"></i> Увійти через Steam
+          </button>
+        </div>
+
+        <!-- Форма додавання коментаря (прихована за замовчуванням) -->
+        <div id="comment-form-container" class="max-w-2xl mx-auto mb-8 hidden">
+          <div class="bg-gray-800 rounded-lg p-6 shadow-lg comment-form">
+            <div class="flex items-start space-x-4 mb-4">
+              <img
+                id="comment-user-avatar"
+                src=""
+                alt="User Avatar"
+                class="w-10 h-10 rounded-full"
+              />
+              <div class="flex-1">
+                <textarea
+                  id="comment-text"
+                  class="w-full bg-gray-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-500"
+                  rows="3"
+                  placeholder="Напишіть ваш відгук про сервер..."
+                ></textarea>
+              </div>
+            </div>
+            <div class="flex justify-end">
+              <button
+                id="submit-comment-btn"
+                class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300"
+              >
+                Надіслати
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Список коментарів (прихований за замовчуванням) -->
+        <div id="comments-list-container" class="max-w-2xl mx-auto hidden">
+          <div id="comments-list" class="space-y-4 mb-6">
+            <!-- Коментарі будуть додаватись тут -->
+          </div>
+
+          <!-- Пагінація -->
+          <div
+            id="pagination"
+            class="flex justify-center items-center space-x-2 mt-6"
+          >
+            <button
+              id="prev-page"
+              class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div id="page-numbers" class="flex space-x-1">
+              <!-- Номери сторінок будуть додаватись тут -->
+            </div>
+
+            <button
+              id="next-page"
+              class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Пустий стан, коли немає коментарів (прихований за замовчуванням) -->
+        <div
+          id="empty-comments"
+          class="max-w-2xl mx-auto bg-gray-800 rounded-lg p-8 shadow-lg text-center hidden"
+        >
+          <i class="fas fa-comments text-5xl text-gray-600 mb-4"></i>
+          <h3 class="text-xl font-bold text-white mb-2">Ще немає відгуків</h3>
+          <p class="text-gray-400">
+            Будьте першим, хто залишить відгук про наш сервер!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-black py-12 border-t border-gray-800 w-full">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 footer-grid">
+          <!-- Колонка 1: Лого та опис -->
+          <div>
+            <div class="flex items-center mb-4">
+              <img
+                src="./logo.png"
+                alt="Ninja Project Logo"
+                class="w-10 h-10"
+              />
+              <span class="text-white font-bold text-xl ml-3"
+                >NINJA PROJECT</span
+              >
+            </div>
+            <p class="text-gray-400">
+              Найкращий CS2 сервер. Приєднуйся до нашої
+              спільноти!
+            </p>
+          </div>
+
+          <!-- Колонка 2: Розробники -->
+          <div>
+            <h3
+              class="text-xl font-bold text-white mb-4 border-b border-red-500 pb-2"
+            >
+              Розробники
+            </h3>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-center">
+                <i class="fas fa-code text-red-500 mr-2"></i>
+                <span>Головний розробник: Shadow</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-paint-brush text-red-500 mr-2"></i>
+                <span>Дизайнер: NinjaArt</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-cogs text-red-500 mr-2"></i>
+                <span>Адміністратор: CS2Master</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Колонка 3: Статистика -->
+          <div>
+            <h3
+              class="text-xl font-bold text-white mb-4 border-b border-red-500 pb-2"
+            >
+              Статистика
+            </h3>
+            <ul class="space-y-3 text-gray-400">
+              <li class="flex justify-between">
+                <span>Банів:</span>
+                <span class="text-white">127</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Мутів:</span>
+                <span class="text-white">89</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Гравців онлайн:</span>
+                <span class="text-green-500">24/32</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Колонка 4: Контакти -->
+          <div class="overflow-hidden">
+            <h3
+              class="text-xl font-bold text-white mb-4 border-b border-red-500 pb-2"
+            >
+              Контакти
+            </h3>
+            <ul class="space-y-3 text-gray-400">
+              <li class="flex items-start">
+                <i
+                  class="fas fa-envelope text-red-500 mr-2 mt-1 flex-shrink-0"
+                ></i>
+                <span class="break-all">maksimnaumenko197@gmail.com</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
+                <span>Україна</span>
+              </li>
+            </ul>
+
+            <div class="flex space-x-4 mt-4">
+              <a
+                href="https://discord.gg/aznxEMcTAA"
+                class="text-gray-400 hover:text-red-500 text-xl transition duration-300"
+              >
+                <i class="fab fa-discord"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-red-500 text-xl transition duration-300"
+              >
+                <i class="fab fa-tiktok"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Нижній блок -->
+        <div
+          class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500"
+        >
+          <p>
+            Ninja Project не пов'язаний з Valve Corporation. Counter-Strike,
+            Counter-Strike 2, CS2, CSS, CS:GO та всі пов'язані логотипи є
+            торговими марками або зареєстрованими торговими марками Valve
+            Corporation.
+          </p>
+          <p class="mt-2">© 2023 Ninja Project. Усі права захищені.</p>
+        </div>
+      </div>
     </footer>
-    <!-- Footer Section End -->
 
-    <!-- Js Plugins -->
-     <!-- Початок для копіювання IP -->
     <script>
-        function copyText(value) {
-          navigator.clipboard.writeText(value)
-            .then(() => {
-              const status = document.getElementById('copy-status');
-              status.style.display = 'inline';
-              setTimeout(() => {
-                status.style.display = 'none';
-              }, 1500);
-            })
-            .catch(() => alert("❌ Помилка копіювання"));
+      // Ініціалізація правил - всі закриті за замовчуванням
+      document.addEventListener("DOMContentLoaded", function () {
+        const rulesToggles = document.querySelectorAll(".rules-toggle");
+        rulesToggles.forEach((toggle) => {
+          toggle.setAttribute("aria-expanded", "false");
+          const container = toggle.nextElementSibling;
+          container.style.maxHeight = "0";
+        });
+
+        // Ініціалізація коментарів
+        if (allComments.length > 0) {
+          document.getElementById("empty-comments").classList.add("hidden");
+          displayComments(currentPage);
+        } else {
+          document.getElementById("empty-comments").classList.remove("hidden");
         }
-    </script>
-     <!-- Кінець для копіювання IP -->
 
-     <!-- Початок В розробці -->
-    <script>
-        function showDevNotice() {
-          const status = document.getElementById('dev-status');
-          status.style.display = 'inline-block';
-          setTimeout(() => {
-            status.style.display = 'none';
-          }, 1500);
+        // Ініціалізація VIP карток
+        adjustVipCards();
+      });
+
+      // Обробник для кнопок правил
+      document.querySelectorAll(".rules-toggle").forEach((toggle) => {
+        toggle.addEventListener("click", function () {
+          const isExpanded = this.getAttribute("aria-expanded") === "true";
+          this.setAttribute("aria-expanded", !isExpanded);
+          const container = this.nextElementSibling;
+          const icon = this.querySelector("i");
+
+          if (!isExpanded) {
+            container.style.maxHeight = container.scrollHeight + "px";
+            icon.classList.remove("fa-chevron-down");
+            icon.classList.add("fa-chevron-up");
+          } else {
+            container.style.maxHeight = "0";
+            icon.classList.remove("fa-chevron-up");
+            icon.classList.add("fa-chevron-down");
+          }
+        });
+      });
+
+      // Мобільне меню
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+          const icon = mobileMenuButton.querySelector("i");
+          icon.classList.toggle("fa-bars");
+          icon.classList.toggle("fa-times");
+        });
+      }
+
+      // Закриття мобільного меню при кліку на посилання
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          const icon = mobileMenuButton.querySelector("i");
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        });
+      });
+
+      // Копіювання команди підключення
+      const copyConnectBtns = document.querySelectorAll(".copy-connect-btn");
+      copyConnectBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const command = "connect ninja-project.cs2.ua:27015";
+          navigator.clipboard.writeText(command).then(() => {
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check mr-1"></i> Скопійовано!';
+            setTimeout(() => {
+              btn.innerHTML = originalText;
+            }, 2000);
+          });
+        });
+      });
+
+      // Плавна прокрутка для навігації з урахуванням висоти header'а
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            const headerHeight = document.querySelector("header").offsetHeight;
+            const targetPosition = targetElement.offsetTop - headerHeight;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Система коментарів
+      const allComments = [
+        {
+          id: 1,
+          avatar:
+            "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg",
+          name: "ShadowNinja",
+          date: "2 дні тому",
+          text: "Чудовий сервер! Граю вже другий тиждень, адміністрація чуйна, баланс гарний. Рекомендую!",
+        },
+        {
+          id: 2,
+          avatar:
+            "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/56/56d9ba3c8b547a5e9e0629c6e6c3a3b1c7b8b0b7.jpg",
+          name: "CS2Pro",
+          date: "1 тиждень тому",
+          text: "Найкращий ніндзя-сервер, на якому я грав. VIP статус справді вартий своїх грошей.",
+        },
+        {
+          id: 3,
+          avatar:
+            "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/ab/ab1e1a8a5b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3.jpg",
+          name: "NinjaWarrior",
+          date: "3 дні тому",
+          text: "Дуже сподобався ігровий процес, особливо режим ніндзя. Граю кожен вечір!",
+        },
+      ];
+
+      // Додаткові коментарі для тестування пагінації
+      for (let i = 4; i <= 15; i++) {
+        allComments.push({
+          id: i,
+          avatar: `https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg`,
+          name: `User${i}`,
+          date: `${i} днів тому`,
+          text: `Тестовий коментар ${i} для перевірки пагінації.`,
+        });
+      }
+
+      // Налаштування пагінації
+      const commentsPerPage = 3;
+      let currentPage = 1;
+      let totalPages = Math.ceil(allComments.length / commentsPerPage);
+
+      // Функція для відображення коментарів з пагінацією
+      function displayComments(page) {
+        const commentsList = document.getElementById("comments-list");
+        commentsList.innerHTML = "";
+
+        const startIndex = (page - 1) * commentsPerPage;
+        const endIndex = Math.min(
+          startIndex + commentsPerPage,
+          allComments.length
+        );
+
+        for (let i = startIndex; i < endIndex; i++) {
+          const comment = allComments[i];
+          const commentElement = document.createElement("div");
+          commentElement.className =
+            "bg-gray-800 rounded-lg p-6 shadow-lg comment";
+          commentElement.innerHTML = `
+                    <div class="flex items-start space-x-4">
+                        <img src="${comment.avatar}" alt="User Avatar" class="w-10 h-10 rounded-full comment-avatar">
+                        <div>
+                            <div class="flex items-center space-x-2">
+                                <h4 class="font-bold text-white">${comment.name}</h4>
+                                <span class="text-xs text-gray-400">${comment.date}</span>
+                            </div>
+                            <p class="text-gray-300 mt-1">${comment.text}</p>
+                        </div>
+                    </div>
+                `;
+          commentsList.appendChild(commentElement);
         }
+
+        // Оновлення пагінації
+        updatePaginationUI(page);
+      }
+
+      // Оновлена функція для пагінації
+      function updatePaginationUI(currentPage) {
+        const pageNumbersContainer = document.getElementById("page-numbers");
+        pageNumbersContainer.innerHTML = "";
+
+        // Відображаємо кнопки для всіх сторінок
+        for (let i = 1; i <= totalPages; i++) {
+          const pageButton = document.createElement("button");
+          pageButton.className = `px-3 py-1 rounded ${
+            i === currentPage
+              ? "bg-red-600 text-white"
+              : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+          }`;
+          pageButton.textContent = i;
+          pageButton.addEventListener("click", () => {
+            currentPage = i;
+            displayComments(currentPage);
+          });
+          pageNumbersContainer.appendChild(pageButton);
+        }
+
+        // Оновити стан кнопок "Назад" і "Вперед"
+        document.getElementById("prev-page").disabled = currentPage === 1;
+        document.getElementById("next-page").disabled =
+          currentPage === totalPages;
+      }
+
+      // Обробники кнопок пагінації
+      document.getElementById("prev-page").addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage--;
+          displayComments(currentPage);
+        }
+      });
+
+      document.getElementById("next-page").addEventListener("click", () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          displayComments(currentPage);
+        }
+      });
+
+      // Імітація авторизації
+      document
+        .getElementById("comments-login-btn")
+        .addEventListener("click", function () {
+          document.getElementById("login-message").classList.add("hidden");
+          document
+            .getElementById("comment-form-container")
+            .classList.remove("hidden");
+          document
+            .getElementById("comments-list-container")
+            .classList.remove("hidden");
+
+          // Встановлюємо аватар для форми коментаря
+          document.getElementById("comment-user-avatar").src =
+            "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg";
+
+          // Показуємо коментарі
+          if (allComments.length > 0) {
+            document.getElementById("empty-comments").classList.add("hidden");
+            displayComments(currentPage);
+          } else {
+            document
+              .getElementById("empty-comments")
+              .classList.remove("hidden");
+          }
+        });
+
+      // Відправка нового коментаря
+      document
+        .getElementById("submit-comment-btn")
+        .addEventListener("click", function () {
+          const commentText = document
+            .getElementById("comment-text")
+            .value.trim();
+          if (commentText) {
+            // Створення нового коментаря
+            const newComment = {
+              id: allComments.length + 1,
+              avatar:
+                "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg",
+              name: "ShadowNinja", // Тут буде ім'я авторизованого користувача
+              date: "Щойно",
+              text: commentText,
+            };
+
+            // Додавання коментаря до масиву
+            allComments.unshift(newComment); // Додаємо на початок масиву
+
+            // Оновлення загальної кількості сторінок
+            totalPages = Math.ceil(allComments.length / commentsPerPage);
+
+            // Оновлення відображення
+            displayComments(1); // Завжди показуємо першу сторінку після додавання нового коментаря
+            document.getElementById("comment-text").value = "";
+            document.getElementById("empty-comments").classList.add("hidden");
+          } else {
+            alert("Будь ласка, введіть текст коментаря");
+          }
+        });
+
+      // Адаптація VIP карток для різних розмірів екранів
+      
+
+      // Викликати при завантаженні та при зміні розміру вікна
+      adjustVipCards();
+      window.addEventListener("resize", adjustVipCards);
     </script>
-     <!-- Кінець В розробці -->
-
-     
-
-
-
-
-    <script src="js/steam.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
-
+  </body>
 </html>
